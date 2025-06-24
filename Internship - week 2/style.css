@@ -1,0 +1,185 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-container {
+  margin-top: 80px;
+}
+
+/* Sections */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.home {
+  background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-img {
+  width: 280px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.hero-text h2 {
+  font-size: 36px;
+  color: #2e7d32;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.btn {
+  background: #2e7d32;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1b5e20;
+}
+
+/* About */
+.about {
+  background: #f1f8e9;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.section-desc {
+  font-size: 17px;
+  max-width: 700px;
+  margin: auto;
+  color: #444;
+}
+
+/* Saplings */
+.saplings {
+  background: #e8f5e9;
+}
+
+.sapling-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.sapling-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+}
+
+.sapling-card img {
+  width: 100%;
+  height:50%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.sapling-card h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.sapling-card p {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Contact */
+.contact {
+  background: #a5d6a7;
+  color: #1b5e20;
+}
+
+.contact p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background: #2e7d32;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
