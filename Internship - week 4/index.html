@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advanced Click Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 360px;
+      width: 90%;
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    #count {
+      font-size: 64px;
+      font-weight: bold;
+      color: #444;
+      margin: 20px 0;
+      transition: transform 0.2s ease;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .buttons button, .reset-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .increment {
+      background-color: #43a047;
+      color: white;
+    }
+
+    .decrement {
+      background-color: #e53935;
+      color: white;
+    }
+
+    .reset-btn {
+      background-color: #1e88e5;
+      color: white;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .toast {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease, top 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      top: -60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Click Counter</h1>
+    <div id="count">0</div>
+    <div class="buttons">
+      <button class="decrement" onclick="decrement()">−</button>
+      <button class="increment" onclick="increment()">+</button>
+    </div>
+    <button class="reset-btn" onclick="resetCounter()">Reset</button>
+    <div class="toast" id="toast">Counter Reset!</div>
+  </div>
+
+  <script>
+    let count = 0;
+    const countEl = document.getElementById("count");
+    const toast = document.getElementById("toast");
+    const incBtn = document.querySelector(".increment");
+    const decBtn = document.querySelector(".decrement");
+
+    const MIN = 0;
+    const MAX = 100;
+
+    function updateDisplay() {
+      countEl.textContent = count;
+      countEl.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        countEl.style.transform = "scale(1)";
+      }, 150);
+
+      incBtn.disabled = count >= MAX;
+      decBtn.disabled = count <= MIN;
+    }
+
+    function increment() {
+      if (count < MAX) {
+        count++;
+        updateDisplay();
+      }
+    }
+
+    function decrement() {
+      if (count > MIN) {
+        count--;
+        updateDisplay();
+      }
+    }
+
+    function resetCounter() {
+      count = 0;
+      updateDisplay();
+      showToast();
+    }
+
+    function showToast() {
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1500);
+    }
+
+    // Initial setup
+    updateDisplay();
+  </script>
+
+</body>
+</html>
